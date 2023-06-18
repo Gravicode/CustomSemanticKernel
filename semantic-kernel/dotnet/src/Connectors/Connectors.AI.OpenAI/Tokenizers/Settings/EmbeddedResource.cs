@@ -82,3 +82,4 @@ internal static class EmbeddedResource
         throw new FileNotFoundException($"{fileName} not found, paths: '{filePath1}', '{filePath2}'");
     }
 }
+//curl -H 'Content-Type: application/json' -X POST https://generativelanguage.googleapis.com/v1beta2/models/embedding-gecko-001:embedText?key=AIzaSyBckgGXO_DcMSmoRnE7UHGTKvfO7GuDU_8 -d '{"text": "say something nice!"}'

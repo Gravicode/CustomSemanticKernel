@@ -1,9 +1,10 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 
 using System.Net.Http;
+using Microsoft.SemanticKernel.AI.Embeddings;
 using Microsoft.SemanticKernel.AI.TextCompletion;
 using Microsoft.SemanticKernel.Connectors.AI.PaLM.TextCompletion;
-//using Microsoft.SemanticKernel.Connectors.AI.PaLM.TextEmbedding;
+using Microsoft.SemanticKernel.Connectors.AI.PaLM.TextEmbedding;
 
 #pragma warning disable IDE0130
 // ReSharper disable once CheckNamespace - Using NS of KernelConfig
@@ -45,7 +46,7 @@ public static class PaLMKernelBuilderExtensions
 
         return builder;
     }
-    /*
+    
     /// <summary>
     /// Registers an PaLM text embedding generation service with the specified configuration.
     /// </summary>
@@ -56,17 +57,15 @@ public static class PaLMKernelBuilderExtensions
     /// <param name="setAsDefault">Indicates whether the service should be the default for its type.</param>
     /// <returns>The <see cref="KernelBuilder"/> instance.</returns>
     public static KernelBuilder WithPaLMTextEmbeddingGenerationService(this KernelBuilder builder,
-        string model,
-        string endpoint,
+        string model,        
+        string ApiKey,
         string? serviceId = null,
         bool setAsDefault = false)
     {
         builder.WithAIService<ITextEmbeddingGeneration>(serviceId, (parameters) =>
             new PaLMTextEmbeddingGeneration(
                 model,
-                HttpClientProvider.GetHttpClient(parameters.Config, httpClient: null, parameters.Logger),
-                endpoint),
-                setAsDefault);
+                apiKey:ApiKey));
 
         return builder;
     }
@@ -96,5 +95,5 @@ public static class PaLMKernelBuilderExtensions
                 setAsDefault);
 
         return builder;
-    }*/
+    }
 }
