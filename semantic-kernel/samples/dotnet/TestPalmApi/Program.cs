@@ -30,11 +30,11 @@ internal class Program
 
     public static async Task RunTokenAsync()
     {
-        var tokenskill = new TokenSkill(ModelToken,PALM_API_KEY);
+        var tokenskill = new TokenSkill(ModelToken, PALM_API_KEY);
         var count = await tokenskill.CountToken("hello world, I like this.");
         Console.WriteLine($"count token: {count}");
     }
-        public static async Task RunEmbedAsync()
+    public static async Task RunEmbedAsync()
     {
         const string memoryCollectionName = "SKGitHub";
 
@@ -127,7 +127,7 @@ internal class Program
             {
                 Console.WriteLine("try another question..");
             }
-           
+
             /*
             foreach (var modelResult in result.ModelResults)
             {
@@ -136,16 +136,16 @@ internal class Program
             }*/
             if (question == "exit")
             {
-               
+
                 break;
             }
         }
-        
+
 
         string GetHistory()
         {
             var history = string.Empty;
-            foreach(var chat in chatList)
+            foreach (var chat in chatList)
             {
                 history += $"Question: {chat.Question}; Answer:{chat.Answer};\n";
             }
