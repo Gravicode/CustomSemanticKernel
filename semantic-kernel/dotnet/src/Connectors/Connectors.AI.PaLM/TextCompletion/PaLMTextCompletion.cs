@@ -184,6 +184,11 @@ public sealed class PaLMTextCompletion : ITextCompletion, IDisposable
                 };
             }
 
+            if (completionResponse.candidates is null)
+            {
+                completionResponse = new TextCompletionResponse() { candidates = new Candidate[] { new Candidate() { output = "response is null, please try another input." } } };
+            }
+
             //return completionResponse.ConvertAll(c => new TextCompletionStreamingResult(c));
             return new List<ITextStreamingResult>() { new TextCompletionStreamingResult(completionResponse) };
         }

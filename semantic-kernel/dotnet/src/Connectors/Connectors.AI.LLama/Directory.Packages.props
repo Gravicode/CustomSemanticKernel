@@ -1,0 +1,7 @@
+
+<Project>
+  <ItemGroup>
+    <PackageReference Include="LLamaSharp" Version="0.4.0" />
+    <PackageReference Include="LLamaSharp.Backend.Cpu" Version="0.3.1"/>
+  </ItemGroup>
+</Project>
